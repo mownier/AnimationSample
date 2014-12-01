@@ -18,4 +18,6 @@
 
 - (void)noneWithCompletionBlock:(void (^)(BOOL finished))block;
 
+- (void)runningScaleWithCompletionBlock:(void (^)(BOOL finished))block;
+
 @end

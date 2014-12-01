@@ -78,4 +78,29 @@
                      }];
 }
 
+- (void)runningScaleWithCompletionBlock:(void (^)(BOOL))block {
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    anim.fromValue = [NSNumber numberWithFloat:1.0f];
+    anim.toValue = [NSNumber numberWithFloat:0.0f];
+    anim.autoreverses = YES;
+    anim.duration = 2.0f;
+    anim.removedOnCompletion = NO;
+    anim.beginTime = CACurrentMediaTime()+0.0f;
+    anim.repeatCount = INFINITY;
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    CABasicAnimation *theAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+    theAnimation.fromValue = [NSNumber numberWithFloat:self.frame.origin.x];
+    theAnimation.toValue = [NSNumber numberWithFloat:300.0f];
+    theAnimation.autoreverses = YES;
+    theAnimation.duration = 2.0f;
+    theAnimation.removedOnCompletion = NO;
+    theAnimation.beginTime = CACurrentMediaTime()+0.0f;
+    theAnimation.repeatCount = INFINITY;
+    theAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    [self.layer addAnimation:anim forKey:@"scale"];
+    [self.layer addAnimation:theAnimation forKey:@"animateLayer"];
+}
+
 @end
