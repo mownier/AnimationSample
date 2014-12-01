@@ -13,6 +13,7 @@
 		DF3243CB1A2C0CBA001FC2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF3243CA1A2C0CBA001FC2A9 /* Images.xcassets */; };
 		DF3243CE1A2C0CBA001FC2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3243CC1A2C0CBA001FC2A9 /* LaunchScreen.xib */; };
 		DF3243DA1A2C0CBA001FC2A9 /* AnimationSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3243D91A2C0CBA001FC2A9 /* AnimationSampleTests.m */; };
+		DF3243E51A2C13FF001FC2A9 /* UIView+LearningAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3243E41A2C13FF001FC2A9 /* UIView+LearningAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		DF3243D31A2C0CBA001FC2A9 /* AnimationSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimationSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3243D81A2C0CBA001FC2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF3243D91A2C0CBA001FC2A9 /* AnimationSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationSampleTests.m; sourceTree = "<group>"; };
+		DF3243E31A2C13FF001FC2A9 /* UIView+LearningAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LearningAnimation.h"; sourceTree = "<group>"; };
+		DF3243E41A2C13FF001FC2A9 /* UIView+LearningAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LearningAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				DF3243CA1A2C0CBA001FC2A9 /* Images.xcassets */,
 				DF3243CC1A2C0CBA001FC2A9 /* LaunchScreen.xib */,
 				DF3243BD1A2C0CBA001FC2A9 /* Supporting Files */,
+				DF3243E31A2C13FF001FC2A9 /* UIView+LearningAnimation.h */,
+				DF3243E41A2C13FF001FC2A9 /* UIView+LearningAnimation.m */,
 			);
 			path = AnimationSample;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF3243C61A2C0CBA001FC2A9 /* ViewController.m in Sources */,
+				DF3243E51A2C13FF001FC2A9 /* UIView+LearningAnimation.m in Sources */,
 				DF3243C31A2C0CBA001FC2A9 /* AppDelegate.m in Sources */,
 				DF3243C01A2C0CBA001FC2A9 /* main.m in Sources */,
 			);
