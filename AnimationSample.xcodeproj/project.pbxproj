@@ -84,13 +84,13 @@
 			children = (
 				DF3243C11A2C0CBA001FC2A9 /* AppDelegate.h */,
 				DF3243C21A2C0CBA001FC2A9 /* AppDelegate.m */,
-				DF3243C41A2C0CBA001FC2A9 /* ViewController.h */,
-				DF3243C51A2C0CBA001FC2A9 /* ViewController.m */,
 				DF3243CA1A2C0CBA001FC2A9 /* Images.xcassets */,
 				DF3243CC1A2C0CBA001FC2A9 /* LaunchScreen.xib */,
 				DF3243BD1A2C0CBA001FC2A9 /* Supporting Files */,
 				DF3243E31A2C13FF001FC2A9 /* UIView+LearningAnimation.h */,
 				DF3243E41A2C13FF001FC2A9 /* UIView+LearningAnimation.m */,
+				DF3243C41A2C0CBA001FC2A9 /* ViewController.h */,
+				DF3243C51A2C0CBA001FC2A9 /* ViewController.m */,
 			);
 			path = AnimationSample;
 			sourceTree = "<group>";
