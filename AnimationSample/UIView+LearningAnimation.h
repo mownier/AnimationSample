@@ -10,4 +10,8 @@
 
 @interface UIView (LearningAnimation)
 
+- (void)easeInWithCompletionBlock:(void (^)(BOOL finished))block;
+
+- (void)easeOutWithCompletionBlock:(void (^)(BOOL finished))block;
+
 @end
