@@ -11,10 +11,16 @@
 
 @interface ViewController () {
     BOOL _isAnimating;
+    BOOL _isViewAnimating;
+    BOOL _isView2Animating;
+    BOOL _isView3Animating;
+    BOOL _isView4Animating;
 }
 
-@property (strong, nonatomic) UIView *animatedView;
-@property (strong, nonatomic) UIView *animatedView2;
+@property (strong, nonatomic) UIView *animatedView;     // ease in
+@property (strong, nonatomic) UIView *animatedView2;    // ease out
+@property (strong, nonatomic) UIView *animatedView3;    // linear
+@property (strong, nonatomic) UIView *animatedView4;    // none
 @property (strong, nonatomic) UIButton *animateButton;
 
 - (void)animate:(UIButton *)button;
@@ -30,10 +36,14 @@
 
     [self.view addSubview:self.animatedView];
     [self.view addSubview:self.animatedView2];
+    [self.view addSubview:self.animatedView3];
+    [self.view addSubview:self.animatedView4];
     [self.view addSubview:self.animateButton];
     
     NSDictionary *views = @{ @"animatedView": self.animatedView,
                              @"animatedView2": self.animatedView2,
+                             @"animatedView3": self.animatedView3,
+                             @"animatedView4": self.animatedView4,
                              @"animateButton": self.animateButton };
     NSArray *vertical;
     NSArray *horizontal;
@@ -55,6 +65,12 @@
     
     [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-108-[animatedView2(50)]" options:0 metrics:metrics views:views]];
     [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[animatedView2(100)]" options:0 metrics:metrics views:views]];
+    
+    [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-172-[animatedView3(50)]" options:0 metrics:metrics views:views]];
+    [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[animatedView3(100)]" options:0 metrics:metrics views:views]];
+    
+    [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-236-[animatedView4(50)]" options:0 metrics:metrics views:views]];
+    [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[animatedView4(100)]" options:0 metrics:metrics views:views]];
     
     [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[animateButton(50)]-20-|" options:0 metrics:metrics views:views]];
     [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[animateButton(100)]" options:0 metrics:metrics views:views]];
@@ -82,6 +98,24 @@
     return _animatedView2;
 }
 
+- (UIView *)animatedView3 {
+    if (!_animatedView3) {
+        _animatedView3 = [[UIView alloc] initWithFrame:CGRectZero];
+        _animatedView3.translatesAutoresizingMaskIntoConstraints = NO;
+        _animatedView3.backgroundColor = [UIColor magentaColor];
+    }
+    return _animatedView3;
+}
+
+- (UIView *)animatedView4 {
+    if (!_animatedView4) {
+        _animatedView4 = [[UIView alloc] initWithFrame:CGRectZero];
+        _animatedView4.translatesAutoresizingMaskIntoConstraints = NO;
+        _animatedView4.backgroundColor = [UIColor magentaColor];
+    }
+    return _animatedView4;
+}
+
 - (UIButton *)animateButton {
     if (!_animateButton) {
         _animateButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -95,12 +129,26 @@
 
 - (void)animate:(UIButton *)button {
     if (!_isAnimating) {
-        _isAnimating = YES;
+        _isViewAnimating = YES;
+        _isView2Animating = YES;
+        _isView3Animating = YES;
+        _isView4Animating = YES;
+        _isAnimating = (_isViewAnimating && _isView2Animating && _isView3Animating && _isView4Animating);
         [self.animatedView easeInWithCompletionBlock:^(BOOL finished) {
-            _isAnimating = NO;
+            _isViewAnimating = NO;
+            _isAnimating = (_isViewAnimating && _isView2Animating && _isView3Animating && _isView4Animating);
         }];
         [self.animatedView2 easeOutWithCompletionBlock:^(BOOL finished) {
-            _isAnimating = NO;
+            _isView2Animating = NO;
+            _isAnimating = (_isViewAnimating && _isView2Animating && _isView3Animating && _isView4Animating);
+        }];
+        [self.animatedView3 linearWithCompletionBlock:^(BOOL finished) {
+            _isView3Animating = NO;
+            _isAnimating = (_isViewAnimating && _isView2Animating && _isView3Animating && _isView4Animating);
+        }];
+        [self.animatedView4 noneWithCompletionBlock:^(BOOL finished) {
+            _isView4Animating = NO;
+            _isAnimating = (_isViewAnimating && _isView2Animating && _isView3Animating && _isView4Animating);
         }];
     }
 }
