@@ -14,4 +14,8 @@
 
 - (void)easeOutWithCompletionBlock:(void (^)(BOOL finished))block;
 
+- (void)linearWithCompletionBlock:(void (^)(BOOL finished))block;
+
+- (void)noneWithCompletionBlock:(void (^)(BOOL finished))block;
+
 @end

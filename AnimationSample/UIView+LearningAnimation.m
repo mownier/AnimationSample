@@ -11,38 +11,71 @@
 @implementation UIView (LearningAnimation)
 
 - (void)easeInWithCompletionBlock:(void (^)(BOOL))block {
-    [UIView animateWithDuration:0.3f
+    [UIView animateWithDuration:2.0f
                           delay:0.0f
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
                      animations:^{
                          CGRect frame = self.frame;
-                         frame.origin.x += 100.0f;
+                         frame.origin.x += 300.0f;
                          self.frame = frame;
                      } completion:^(BOOL finished) {
-                         [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+                         [UIView animateWithDuration:2.0f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
                              CGRect frame = self.frame;
-                             frame.origin.x -= 100.0f;
+                             frame.origin.x -= 300.0f;
                              self.frame = frame;
                          } completion:block];
                      }];
 }
 
 - (void)easeOutWithCompletionBlock:(void (^)(BOOL))block {
-    [UIView animateWithDuration:0.3f
+    [UIView animateWithDuration:2.0f
                           delay:0.0f
-                        options:UIViewAnimationOptionCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
                      animations:^{
                          CGRect frame = self.frame;
-                         frame.origin.x += 100.0f;
+                         frame.origin.x += 300.0f;
                          self.frame = frame;
                      } completion:^(BOOL finished) {
-                         [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
+                         [UIView animateWithDuration:2.0f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
                              CGRect frame = self.frame;
-                             frame.origin.x -= 100.0f;
+                             frame.origin.x -= 300.0f;
                              self.frame = frame;
                          } completion:block];
                      }];
+}
 
+- (void)linearWithCompletionBlock:(void (^)(BOOL))block {
+    [UIView animateWithDuration:2.0f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
+                     animations:^{
+                         CGRect frame = self.frame;
+                         frame.origin.x += 300.0f;
+                         self.frame = frame;
+                     } completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2.0f delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{
+                             CGRect frame = self.frame;
+                             frame.origin.x -= 300.0f;
+                             self.frame = frame;
+                         } completion:block];
+                     }];
+}
+
+- (void)noneWithCompletionBlock:(void (^)(BOOL))block {
+    [UIView animateWithDuration:2.0f
+                          delay:0.0f
+                        options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
+                     animations:^{
+                         CGRect frame = self.frame;
+                         frame.origin.x += 300.0f;
+                         self.frame = frame;
+                     } completion:^(BOOL finished) {
+                         [UIView animateWithDuration:2.0f delay:0.0f options:0 animations:^{
+                             CGRect frame = self.frame;
+                             frame.origin.x -= 300.0f;
+                             self.frame = frame;
+                         } completion:block];
+                     }];
 }
 
 @end
