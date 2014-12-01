@@ -10,7 +10,6 @@
 		DF3243C01A2C0CBA001FC2A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3243BF1A2C0CBA001FC2A9 /* main.m */; };
 		DF3243C31A2C0CBA001FC2A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3243C21A2C0CBA001FC2A9 /* AppDelegate.m */; };
 		DF3243C61A2C0CBA001FC2A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3243C51A2C0CBA001FC2A9 /* ViewController.m */; };
-		DF3243C91A2C0CBA001FC2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF3243C71A2C0CBA001FC2A9 /* Main.storyboard */; };
 		DF3243CB1A2C0CBA001FC2A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF3243CA1A2C0CBA001FC2A9 /* Images.xcassets */; };
 		DF3243CE1A2C0CBA001FC2A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3243CC1A2C0CBA001FC2A9 /* LaunchScreen.xib */; };
 		DF3243DA1A2C0CBA001FC2A9 /* AnimationSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3243D91A2C0CBA001FC2A9 /* AnimationSampleTests.m */; };
@@ -34,7 +33,6 @@
 		DF3243C21A2C0CBA001FC2A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DF3243C41A2C0CBA001FC2A9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DF3243C51A2C0CBA001FC2A9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DF3243C81A2C0CBA001FC2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF3243CA1A2C0CBA001FC2A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DF3243CD1A2C0CBA001FC2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DF3243D31A2C0CBA001FC2A9 /* AnimationSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimationSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,6 @@
 				DF3243C21A2C0CBA001FC2A9 /* AppDelegate.m */,
 				DF3243C41A2C0CBA001FC2A9 /* ViewController.h */,
 				DF3243C51A2C0CBA001FC2A9 /* ViewController.m */,
-				DF3243C71A2C0CBA001FC2A9 /* Main.storyboard */,
 				DF3243CA1A2C0CBA001FC2A9 /* Images.xcassets */,
 				DF3243CC1A2C0CBA001FC2A9 /* LaunchScreen.xib */,
 				DF3243BD1A2C0CBA001FC2A9 /* Supporting Files */,
@@ -199,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF3243C91A2C0CBA001FC2A9 /* Main.storyboard in Resources */,
 				DF3243CE1A2C0CBA001FC2A9 /* LaunchScreen.xib in Resources */,
 				DF3243CB1A2C0CBA001FC2A9 /* Images.xcassets in Resources */,
 			);
@@ -244,14 +240,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DF3243C71A2C0CBA001FC2A9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF3243C81A2C0CBA001FC2A9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DF3243CC1A2C0CBA001FC2A9 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -412,6 +400,7 @@
 				DF3243DF1A2C0CBA001FC2A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF3243E01A2C0CBA001FC2A9 /* Build configuration list for PBXNativeTarget "AnimationSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +409,7 @@
 				DF3243E21A2C0CBA001FC2A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
