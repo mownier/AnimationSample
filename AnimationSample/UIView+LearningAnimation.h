@@ -20,4 +20,6 @@
 
 - (void)runningScaleWithCompletionBlock:(void (^)(BOOL finished))block;
 
+- (void)squareToCircleToRoundedRectangle;
+
 @end
