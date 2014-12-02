@@ -16,6 +16,7 @@
     BOOL _isView3Animating;
     BOOL _isView4Animating;
     BOOL _isView5Animating;
+    BOOL _isView6Animating;
 }
 
 @property (strong, nonatomic) UIView *animatedView;     // ease in
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) UIView *animatedView3;    // linear
 @property (strong, nonatomic) UIView *animatedView4;    // none
 @property (strong, nonatomic) UIView *animatedView5;    // running scale
+@property (strong, nonatomic) UIView *animatedView6;    // circle to square to rectangle
 @property (strong, nonatomic) UIButton *animateButton;
 
 - (void)animate:(UIButton *)button;
@@ -41,6 +43,7 @@
     [self.view addSubview:self.animatedView3];
     [self.view addSubview:self.animatedView4];
     [self.view addSubview:self.animatedView5];
+    [self.view addSubview:self.animatedView6];
     [self.view addSubview:self.animateButton];
     
     NSDictionary *views = @{ @"animatedView": self.animatedView,
@@ -48,6 +51,7 @@
                              @"animatedView3": self.animatedView3,
                              @"animatedView4": self.animatedView4,
                              @"animatedView5": self.animatedView5,
+                             @"animatedView6": self.animatedView6,
                              @"animateButton": self.animateButton };
     NSArray *vertical;
     NSArray *horizontal;
@@ -83,6 +87,10 @@
     // animated view5
     [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-300-[animatedView5(50)]" options:0 metrics:metrics views:views]];
     [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[animatedView5(100)]" options:0 metrics:metrics views:views]];
+    
+    // animated view6
+    [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-364-[animatedView6(50)]" options:0 metrics:metrics views:views]];
+    [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[animatedView6(50)]" options:0 metrics:metrics views:views]];
     
     [vert addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[animateButton(50)]-20-|" options:0 metrics:metrics views:views]];
     [horiz addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[animateButton(100)]" options:0 metrics:metrics views:views]];
@@ -137,6 +145,15 @@
     return _animatedView5;
 }
 
+- (UIView *)animatedView6 {
+    if (!_animatedView6) {
+        _animatedView6 = [[UIView alloc] initWithFrame:CGRectZero];
+        _animatedView6.translatesAutoresizingMaskIntoConstraints = NO;
+        _animatedView6.backgroundColor = [UIColor magentaColor];
+    }
+    return _animatedView6;
+}
+
 - (UIButton *)animateButton {
     if (!_animateButton) {
         _animateButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -171,11 +188,12 @@
         [self.animatedView5 runningScaleWithCompletionBlock:^(BOOL finished) {
             _isView5Animating = NO;
         }];
+        [self.animatedView6 squareToCircleToRoundedRectangle];
     }
 }
 
 - (BOOL)isAnimating {
-    _isAnimating = (_isViewAnimating && _isView2Animating && _isView3Animating && _isView4Animating && _isView5Animating);
+    _isAnimating = (_isViewAnimating || _isView2Animating || _isView3Animating || _isView4Animating || _isView5Animating || _isView6Animating);
     return _isAnimating;
 }
 
